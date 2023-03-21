@@ -1,0 +1,18 @@
+
+
+<header>
+    <nav class="navbar">
+        <h1 class="navbar__logo">LOGO</h1>
+        <ul class="navbar__menu">
+            <li class="navbar__menu-item">
+                <a class="navbar__menu-item-link" href="#">Профиль</a>
+            </li>
+            <li class="navbar__menu-item">
+                <a class="navbar__menu-item-link" href="#">Настройки</a>
+            </li>
+            <li class="navbar__menu-item">
+                <a class="navbar__menu-item-link" href="{{ url_for('bp_auth.logout') }}">Выход</a>
+            </li>
+        </ul>
+    </nav>
+</header>

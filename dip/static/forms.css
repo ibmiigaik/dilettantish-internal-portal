@@ -1,0 +1,68 @@
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-form__header {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+  }
+
+  .login-form__message-error {
+    width: 100%;
+    background-color: #ffd5e4;
+    border: 1px solid #ff5590;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .login-form__message-error__text {
+    color: #ff5590;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .login-form__label {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 2px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    color:rgba(0, 0, 0, 0.548)
+  }
+  
+  .login-form__input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .login-form__button {
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .login-form__button:hover {
+    background-color: #555;
+  }
