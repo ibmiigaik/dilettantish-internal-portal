@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='footer.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='elements.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forms.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin_sidebar.css') }}">
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,9 @@
                 <p>&copy; DevSecOps 2023, МИИГАиК</p>
             </div>
         </footer> 
+
+        {% block scripts %}
+        {% endblock %}
     </body>
 
 </html>

@@ -2,7 +2,7 @@ import base64
 import functools
 import json
 
-from flask import current_app, request, redirect, url_for
+from flask import current_app, request, redirect, url_for, g
 
 from dip.models import User
 from dip.utils.security import is_valid_signature, create_signature
@@ -54,11 +54,28 @@ def authed_only(f):
     @functools.wraps(f)
     def authed_only_wrapper(*args, **kwargs):
         if authed():
+            g.user = get_current_user()
             return f(*args, **kwargs)
         else:
             return redirect(url_for('bp_auth.login'))   
 
     return authed_only_wrapper
+
+
+def admin_only(f):
+    @functools.wraps(f)
+    def admin_only_wrapper(*args, **kwargs):
+        if authed():
+            user = get_current_user()
+            g.user = user
+            if user.role == 'admin':
+                return f(*args, **kwargs)
+
+        else:
+            return render_template('errors/403.html'), 403
+
+    return admin_only_wrapper
+
 
 
 def authed():

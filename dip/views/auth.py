@@ -1,4 +1,4 @@
-from flask import Blueprint, make_response, render_template, request, url_for, current_app, redirect
+from flask import Blueprint, make_response, render_template, request, url_for, current_app, redirect, g
 
 from dip.utils.session import get_current_user, create_session
 from dip.utils.session import set_user_identity, SESSION_COOKIE_NAME
@@ -36,6 +36,8 @@ def login():
         
         resp = redirect(url_for('bp_user.profile'))
         resp.set_cookie(SESSION_COOKIE_NAME, session)
+
+        g.user = user
 
         return resp
 
