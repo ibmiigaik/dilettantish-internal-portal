@@ -35,6 +35,7 @@ def create_admin_user(db, config):
 def register_blueprints(app):
     app.register_blueprint(views.bp_user)
     app.register_blueprint(views.bp_auth)
+    app.register_blueprint(views.bp_admin)
     
     app.register_blueprint(views.bp_static)
 
