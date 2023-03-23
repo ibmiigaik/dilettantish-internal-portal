@@ -14,9 +14,3 @@ def profile():
 
     return render_template('profile.html')
 
-
-@bp.route('/profile/:id', methods=['GET'])
-@role_required(['admin', 'user'])
-def user_profile():
-    pass
-
