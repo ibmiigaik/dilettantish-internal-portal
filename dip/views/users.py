@@ -56,6 +56,6 @@ def profile():
         return redirect(url_for('bp_user.profile'))
 
 @bp.route('/profile/<id_>', methods=['GET', 'POST'])
-@role_required(['admin', 'user'])
+@role_required()
 def profile_id(id_):
     pass
