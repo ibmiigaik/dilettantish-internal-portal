@@ -62,17 +62,33 @@ def authed_only(f):
     return authed_only_wrapper
 
 
-def role_required(roles):
-    def decorator(f):
-        @functools.wraps(f)
-        def wrapper(*args, **kwargs):
-            if 'role' not in request.cookies:
-                return redirect(url_for('bp_auth.login'))
-            if request.cookies['role'] not in roles:
-                return "Error"
+def role_required(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        if is_role_required():
+            g.user = get_current_user()
             return f(*args, **kwargs)
-        return wrapper
-    return decorator
+        else:
+            return redirect(url_for('bp_auth.login'))
+    return wrapper
+
+
+def is_role_required():
+    result = True
+    if not request.cookies.get(SESSION_COOKIE_NAME):
+        result = False
+
+    identity_json = base64.b64decode(request.cookies.get(SESSION_COOKIE_NAME))
+    identity = json.loads(identity_json)
+
+    role = User.query.filter_by(role=identity['role']).first()
+    role = 'user'
+    print(role)
+
+    if role not in AUTHED_ROLES:
+        result = False
+
+    return result
 
 
 def admin_only(f):
