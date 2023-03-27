@@ -2,7 +2,7 @@ import base64
 import functools
 import json
 
-from flask import current_app, request, redirect, url_for, g
+from flask import current_app, request, redirect, url_for, g, render_template
 
 from dip.models import User
 from dip.utils.security import is_valid_signature, create_signature

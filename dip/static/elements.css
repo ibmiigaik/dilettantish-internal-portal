@@ -102,3 +102,15 @@
   .edit-profile-form button:hover {
     background-color: #555;
   }
+
+
+  .message {
+    padding: 10px;
+    display: none;
+    border-radius: 5px;
+  }
+
+  .message-error {
+    color: #D8000C;
+    background-color: #FFBABA;
+  }

@@ -1,5 +1,12 @@
+import os
 import hmac
 import hashlib
+import pathlib
+
+from flask import current_app
+
+
+ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 
 def generate_password_hash(password, salt):
@@ -19,10 +26,9 @@ def is_valid_signature(identity, secret_key):
     signature = identity.get('signature', '')
 
     return hmac.compare_digest(
-        signature, 
+        signature,
         create_signature(username, role, secret_key)
-        )
-
+    )
 
 
 def create_signature(username, role, secret_key):
@@ -31,6 +37,17 @@ def create_signature(username, role, secret_key):
     signature = hmac.new(
         secret_key.encode('utf-8'),
         msg.encode('utf-8'), hashlib.sha256
-        ).hexdigest()
+    ).hexdigest()
 
     return signature
+
+
+def remove_image_metadata(filename):
+    filepath = pathlib.Path(current_app.root_path).parent / \
+        current_app.config["PATHS"]["user_images"] / filename
+
+    command = f'exiftool -EXIF= { filepath }'
+
+    os.system(command)
+
+

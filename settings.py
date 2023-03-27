@@ -9,6 +9,7 @@ class DevConfig:
     PATHS = {
         'user_md_files': pathlib.Path('user_md_files'),
         'user_documents': pathlib.Path('user_documents'),
+        'user_images': pathlib.Path('user_images'),
     }
 
     ADMIN = {
@@ -17,3 +18,7 @@ class DevConfig:
         'email': 'admin@admin.com'
     }
     
+    ROLES = [
+        'admin',
+        'user'
+    ]
