@@ -1,6 +1,6 @@
 from flask import Blueprint, make_response, render_template, request, url_for, current_app, redirect
 
-from dip.utils.session import set_user_identity, authed_only, get_current_user
+from dip.utils.session import set_user_identity, authed_only, get_current_user, role_required
 from dip.utils.security import remove_image_metadata, generate_password_hash
 from dip.extensions import db
 
@@ -54,3 +54,8 @@ def profile():
         db.session.commit()
 
         return redirect(url_for('bp_user.profile'))
+
+@bp.route('/profile/<id_>', methods=['GET', 'POST'])
+@role_required(['admin', 'user'])
+def profile_id(id_):
+    pass
