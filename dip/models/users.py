@@ -24,6 +24,21 @@ class User(db.Model):
     # documents 
     # applications
 
+    def json(self):
+        return {
+            'id': self.id,
+            'first_name': self.first_name,
+            'second_name': self.second_name,
+            'patronymic': self.patronymic,
+            'full_name': f'{self.first_name} {self.second_name} {self.patronymic}',
+            'username': self.username,
+            'photo': self.photo,
+            'email': self.email,
+            'phone_number': self.phone_number,
+            'job_title': self.job_title.json() if self.job_title else None,
+            'role': self.role,
+        }
+
 
 class JobTitle(db.Model):
     __tablename__ = 'job_titles'
@@ -31,3 +46,9 @@ class JobTitle(db.Model):
     title = db.Column(db.String(255), unique=True, nullable=False)
 
     users = db.relationship('User', back_populates='job_title')
+
+    def json(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+        }
