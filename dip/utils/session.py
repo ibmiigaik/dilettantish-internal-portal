@@ -76,6 +76,7 @@ def role_required(roles):
         return wrapper
     return decorator
 
+
 def admin_only(f):
     @functools.wraps(f)
     def admin_only_wrapper(*args, **kwargs):
