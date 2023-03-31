@@ -1,116 +1,153 @@
 /* user card */
 
 .user-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin: 5px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 1px 2px 5px rgba(0.2, 0.2, 0.2, 0.2);
-    text-align: center;
-    width: 100%;
-    max-width: 700px;
-  }
-  
-  .user-card__img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-  
-  .user-card__field-bold {
-    margin: 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .user-card__field {
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  .user-card__button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .user-card__button:hover {
-    background-color: #555;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgba(0.2, 0.2, 0.2, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+}
 
-  /* user edit form */
+.user-card__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
 
-  .edit-profile-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .edit-profile-form h2 {
-    margin-top: 0;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .edit-profile-form form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .edit-profile-form label {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .edit-profile-form input,
-  .edit-profile-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .edit-profile-form button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .edit-profile-form button:hover {
-    background-color: #555;
-  }
+.user-card__field-bold {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-card__field {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.user-card__button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.user-card__button:hover {
+  background-color: #555;
+}
+
+/* user edit form */
+
+.edit-profile-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.edit-profile-form h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.edit-profile-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.edit-profile-form label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.edit-profile-form input,
+.edit-profile-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.edit-profile-form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.edit-profile-form button:hover {
+  background-color: #555;
+}
 
 
-  .message {
-    padding: 10px;
-    display: none;
-    border-radius: 5px;
-  }
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+  display: none;
+  width: 100%;
+}
 
-  .message-error {
-    color: #D8000C;
-    background-color: #FFBABA;
-  }
+.message-info {
+  color: #059;
+  background-color: #BEF;
+  display: block;
+}
+
+.message-error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  display: block;
+}
+
+.button-container {
+  display: flex;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.button-container-right {
+  justify-content: right;
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button--add {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.button--submit {
+  background-color: #4caf50;
+  color: #fff;
+}
