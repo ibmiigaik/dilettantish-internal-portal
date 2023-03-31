@@ -54,3 +54,10 @@ def profile():
         db.session.commit()
 
         return redirect(url_for('bp_user.profile'))
+
+
+
+@bp.route('/profile/<username>', methods=['GET'])
+#@role_required(['user'])
+def profile_username(username):
+    return username
