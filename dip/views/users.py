@@ -57,6 +57,6 @@ def profile():
 
 
 @bp.route('/profile/<username>', methods=['GET'])
-#@role_required(['user'])
+@role_required(['user'])
 def profile_username(username):
     return username

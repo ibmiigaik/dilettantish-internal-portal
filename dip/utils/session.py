@@ -66,11 +66,12 @@ def role_required(roles):
     def decorator(f):
         @functools.wraps(f)
         def wrapper(*args, **kwargs):
-            if 'role' not in request.cookies:
-                return redirect(url_for('bp_auth.login'))
-            if request.cookies['role'] not in roles:
-                return "Error"
-            return f(*args, **kwargs)
+            identity_json = base64.b64decode(request.cookies.get(SESSION_COOKIE_NAME))
+            identity = json.loads(identity_json)
+            if identity['role'] in roles:
+                return f(*args, **kwargs)
+            else:
+                return render_template('errors/403.html')
         return wrapper
     return decorator
 
