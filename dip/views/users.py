@@ -55,21 +55,8 @@ def profile():
 
         return redirect(url_for('bp_user.profile'))
 
-@bp.route('/profile/<id_>', methods=['GET', 'POST'])
-@role_required(['user', 'admin'])
-def profile_id(id_):
-    print("OK")
-    # if request.method == 'GET':
-    #
-    #     current_user = get_current_user()
-    #     user_json = current_user.json()
-    #
-    #     if user_json.get('photo'):
-    #         user_json['photo'] = url_for(
-    #             'static.send_user_image', id_=current_user.id)
-    #
-    #     else:
-    #         user_json['photo'] = url_for(
-    #             'static', filename='img/profile-picture.jpg')
-    #
-    #     return render_template('profile.html', user=user_json)
+
+@bp.route('/profile/<username>', methods=['GET'])
+@role_required(['user'])
+def profile_username(username):
+    return username
