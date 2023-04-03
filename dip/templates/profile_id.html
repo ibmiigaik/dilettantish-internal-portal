@@ -12,30 +12,7 @@
     <p class="user-card__field">{{ user['job_title']['title'] }}</p>
     <p class="user-card__field">{{ user['email'] }}</p>
     <p class="user-card__field">{{ user['phone_number'] }}</p>
-    <button class="user-card__button">Редактировать</a>
   </div>
-
-
-  <div class="modal">
-    <div class="modal__overlay"></div>
-    <div class="modal__content">
-        <h2 class="modal__title">Сменить фото</h2>
-        <form id="edit-user-form" class="modal__form" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="id">
-            <div class="modal__form__group">
-                <label class="modal__form__label" for="photo">Фото:</label>
-                <img class="user-card__img" src="{{ url_for('static', filename='img/profile-picture.jpg') }}" alt="Profile picture" id="photo_preview">
-                <input type="file" id="photo" accept="image/*" style="display:none;" name="photo">
-            </div>
-            <div class="modal__form__group">
-                <label class="modal__form__label" for="password">Пароль:</label>
-                <input class="modal__form__input" type="password" name="password" id="password" autocomplete="on">
-            </div>
-            <div class="message message-error"></div>
-        </form>
-    </div>
-</div>
-
 
 </div>
 
