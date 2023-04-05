@@ -1,18 +1,7 @@
-//const editButtons = document.querySelectorAll('.job-titles-list__button--edit');
 const deleteButtons = document.querySelectorAll('.job-titles-list__button--delete');
 
 const jobTitleEditable = document.querySelectorAll('.job-titles-list__name');
 
-//editButtons.forEach(button => {
-//  button.addEventListener('click', (e) => {
-//    e.preventDefault();
-//
-//    const jobTitleId = button.parentNode.id;
-//
-//    focusEditableField(jobTitleId);
-//
-//  });
-//});
 
 deleteButtons.forEach(button => {
   button.addEventListener('click', (e) => {
@@ -90,8 +79,3 @@ function showError(message) {
   errorElement.style.display = 'block';
   timer = setTimeout(function(){ errorElement.style.display = 'none'; }, 2000);
 }
-
-//function focusEditableField(jobTitleId) {
-//  const el = document.querySelector(`.job-titles-list__item[id="${ jobTitleId }"] > span`);
-//  el.focus();
-//}

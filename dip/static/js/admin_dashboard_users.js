@@ -82,8 +82,11 @@ async function openEditModal(userId) {
         if (currentUser.photo) {
             document.getElementById('photo_preview').src = `/user/${userId}/photo`;
         }
-    }
 
+        
+    }
+    var errorElement = document.querySelector('.message-error');
+    errorElement.style.display = 'none'
     modal.style.display = 'block';
 }
 

@@ -3,6 +3,7 @@ from flask import Blueprint, make_response, render_template, request, url_for, c
 from dip.utils.session import set_user_identity, authed_only, get_current_user, role_required
 from dip.utils.security import remove_image_metadata, generate_password_hash
 from dip.extensions import db
+from dip.models import User
 
 bp = Blueprint('bp_user', __name__)
 
@@ -57,15 +58,16 @@ def profile():
 
 @bp.route('/profile/<username>', methods=['GET', 'POST'])
 @role_required(['user'])
-def profile_id(username):
+def profile_username(username):
     if request.method == 'GET':
 
         user = User.query.filter_by(username=username).first()
-        user_json = current_user.json()
+
+        user_json = user.json()
 
         if user_json.get('photo'):
             user_json['photo'] = url_for(
-                'static.send_user_image', id_=current_user.id)
+                'static.send_user_image', id_=user.id)
 
         else:
             user_json['photo'] = url_for(
