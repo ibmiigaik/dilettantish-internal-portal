@@ -68,8 +68,7 @@ def role_required(roles):
         def wrapper(*args, **kwargs):
             identity_json = base64.b64decode(request.cookies.get(SESSION_COOKIE_NAME))
             identity = json.loads(identity_json)
-            role = User.query.filter_by(role=identity['role']).first()
-            if role in roles:
+            if identity['role'] in roles:
                 return f(*args, **kwargs)
             else:
                 return render_template('errors/403.html')
