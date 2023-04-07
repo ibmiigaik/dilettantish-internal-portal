@@ -1,6 +1,6 @@
 from flask import Blueprint, make_response, render_template, request, url_for, current_app, redirect
 
-from dip.utils.session import set_user_identity, authed_only, get_current_user, role_required
+from dip.utils.session import set_user_identity, authed_only, get_current_user, role_required, set_user_if_authed
 from dip.utils.security import remove_image_metadata, generate_password_hash
 from dip.extensions import db
 from dip.models import User
@@ -8,6 +8,7 @@ from dip.models import User
 bp = Blueprint('bp_user', __name__)
 
 
+bp.before_app_request(set_user_if_authed)
 bp.after_app_request(set_user_identity)
 
 
