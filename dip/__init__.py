@@ -37,6 +37,7 @@ def register_blueprints(app):
     app.register_blueprint(views.bp_auth)
     app.register_blueprint(views.bp_admin)
     app.register_blueprint(views.bp_wiki)
+    app.register_blueprint(views.bp_index)
     
     app.register_blueprint(views.bp_static)
 

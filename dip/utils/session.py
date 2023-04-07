@@ -16,6 +16,10 @@ AUTHED_ROLES = [
 SESSION_COOKIE_NAME = 'session_cookie'
 
 
+def set_user_if_authed():
+    if authed():
+        g.user = get_current_user()
+
 
 # anonymous identity if not exists
 def set_user_identity(response):
@@ -48,8 +52,6 @@ def get_current_user():
     return user
 
 
-# Здесь нужно просто хранилище проверить
-# посмотреть, как работает JWT
 def authed_only(f):
     @functools.wraps(f)
     def authed_only_wrapper(*args, **kwargs):
